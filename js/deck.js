@@ -149,7 +149,7 @@
   /* ---------- ao entrar em cada tela ---------- */
   function onEnter(s) {
     $$('[data-count]', s).forEach(countUp);
-    if (s.classList.contains('s-tv')) tvStart(); else tvStop();
+    if (s.classList.contains('s-dur')) tvStart(); else tvStop();
   }
 
   /* programação: destacar faixa */
@@ -163,19 +163,19 @@
 
   /* carrinhos */
   const CARTS = [
-    ['Fruta da casa', 'Docinho que vem da natureza.', ['Espetinho de frutas da estação', 'Copinho de melancia e uva', 'Picolé de fruta']],
-    ['Pipoca da casa', 'Estourada na hora.', ['Pipoca salgada no azeite', 'Pipoca doce em porção pequena']],
-    ['Lanchinho da casa', 'Para recarregar entre uma brincadeira e outra.', ['Mini pão de queijo', 'Sanduíche natural de frango ou de queijo branco no pão integral', 'Wrap de homus com legumes (vegano)']],
-    ['Bebidas da casa', 'Água fresquinha a manhã toda.', ['Água', 'Água saborizada com fruta e hortelã', 'Suco natural sem açúcar', 'Limonada suíça pouco doce']],
-    ['Docinho da casa', 'Um pedacinho de alegria.', ['Brigadeiro de colher em porção pequena', 'Cookie de aveia com banana', 'Iogurte com granola']],
-    ['Café da casa', 'Para os adultos da família.', ['Café coado', 'Cappuccino', 'Chá gelado sem açúcar', 'Leite vegetal']]
+    ['Fruta da casa', 'Docinho que vem da natureza.', ['Espetinho de frutas da estação', 'Copinho de melancia e uva', 'Picolé de fruta'], 'Tudo neste carrinho'],
+    ['Pipoca da casa', 'Estourada na hora.', ['Pipoca salgada no azeite', 'Pipoca doce em porção pequena'], 'Pipoca no azeite, sem manteiga'],
+    ['Lanchinho da casa', 'Para recarregar entre uma brincadeira e outra.', ['Mini pão de queijo', 'Sanduíche natural de frango ou de queijo branco no pão integral', 'Wrap de homus com legumes (vegano)'], 'Sanduíche natural e wrap'],
+    ['Bebidas da casa', 'Água fresquinha a manhã toda.', ['Água', 'Água saborizada com fruta e hortelã', 'Suco natural sem açúcar', 'Limonada suíça pouco doce'], 'Água saborizada e suco sem açúcar'],
+    ['Docinho da casa', 'Um pedacinho de alegria.', ['Brigadeiro de colher em porção pequena', 'Cookie de aveia com banana', 'Iogurte com granola'], 'Cookie de aveia com banana, iogurte natural'],
+    ['Café da casa', 'Para os adultos da família.', ['Café coado', 'Cappuccino', 'Chá gelado sem açúcar', 'Leite vegetal'], 'Chá gelado sem açúcar']
   ];
   $$('.cr-list button').forEach(b => b.onclick = e => {
     e.stopPropagation();
     $$('.cr-list button').forEach(x => x.classList.toggle('on', x === b));
-    const [n, l, items] = CARTS[+b.dataset.cart];
+    const [n, l, items, healthy] = CARTS[+b.dataset.cart];
     const swap = $$('.cart-top,.menu-a4'); swap.forEach(x => x.classList.add('swap'));
-    setTimeout(() => { $('#crName').textContent = n; $('#crLine').textContent = l; $('#crMenuT').textContent = n; $('#crMenu').innerHTML = items.map(i => `<li>${i}</li>`).join(''); swap.forEach(x => x.classList.remove('swap')); }, 200);
+    setTimeout(() => { $('#crName').textContent = n; $('#crLine').textContent = l; $('#crMenuT').textContent = n; $('#crMenu').innerHTML = items.map(i => `<li>${i}</li>`).join(''); $('#crHealthy').textContent = `Saudável: ${healthy.charAt(0).toLowerCase() + healthy.slice(1)}`; swap.forEach(x => x.classList.remove('swap')); }, 200);
   });
 
   /* TV: loop das 4 telas */
@@ -200,40 +200,6 @@
     $$('.ph-p').forEach(p => p.classList.toggle('on', p.dataset.t === b.dataset.t));
   });
   $$('.ph-ages span').forEach(s => s.onclick = e => { e.stopPropagation(); $$('.ph-ages span').forEach(x => x.classList.toggle('on', x === s)); });
-
-  /* FAQ */
-  const FAQ = [
-    ['Sobre o evento', [
-      ['O que é o Family Day?', 'É o dia em que a Ágora abre a casa para as famílias dos colaboradores. Uma manhã de atividades para as crianças conhecerem onde vocês trabalham e passarem um tempo junto com vocês.'],
-      ['Quando e onde vai ser?', 'Sexta-feira, 11/12/2026, das 9h às 13h, no rooftop, na Faria Lima. O endereço completo chega com a confirmação da inscrição.'],
-      ['Quem pode participar?', 'Colaboradores da Ágora e seus filhos. Cada criança precisa estar acompanhada de um responsável durante todo o evento.'],
-      ['Posso chegar depois das 9h ou sair antes das 13h?', 'Pode. O check-in fica aberto a manhã toda. Só não esqueça de fazer o check-out da criança antes de sair.']]],
-    ['Inscrição', [
-      ['Como faço a inscrição?', 'Pelo botão “Inscrever minha família” no e-mail convite. Você informa o nome e a idade de cada filho e se há alguma restrição alimentar ou cuidado especial.'],
-      ['Até quando posso me inscrever?', 'Até 20/11/2026. As vagas são por ordem de inscrição.'],
-      ['Preciso confirmar a presença de novo perto do dia?', 'Não. Você recebe um lembrete com a programação na semana do evento. Se não puder ir, avise pelo mesmo link para liberar a vaga.']]],
-    ['Crianças e atividades', [
-      ['Quais atividades vão ter?', 'Pintura em tela, tatuagem temporária, origami, balões, malabares, jogo da velha gigante, pequenos jardineiros, caça ao tesouro com passaporte, espaço kids e cantinho baby com trocador.'],
-      ['Tem atividade para bebês?', 'Sim. O Cantinho baby é para 0 a 2 anos, com tapete, brinquedos macios e trocador.'],
-      ['As crianças ficam sozinhas nos espaços?', 'Não. Todos os espaços têm monitores, mas o responsável continua junto da criança durante o evento.'],
-      ['Como funciona o crachá?', 'Cada criança recebe um crachá na chegada, com o nome dela na frente e o nome e o celular do responsável no verso. A cor do cordão mostra a faixa de idade, e o cordão tem trava de segurança. Bebês de 0 a 2 anos usam um adesivo nas costas, no lugar do cordão.'],
-      ['E se meu filho precisar de um cuidado especial?', 'Conte na inscrição, assim a equipe se prepara com antecedência. Há também o Cantinho calmo, com luz baixa e sem som, para quem quiser dar uma pausa.']]],
-    ['Comida e conforto', [
-      ['Vai ter comida?', 'Sim. Seis carrinhos funcionam a manhã toda, com frutas, lanches, pipoca, bebidas, docinhos e café para os adultos, sempre com opções saudáveis.'],
-      ['Meu filho tem alergia ou restrição alimentar. E agora?', 'Informe na inscrição. Nos carrinhos, cada cardápio mostra os alérgenos e há opções sem glúten, sem lactose e sem açúcar adicionado.'],
-      ['O rooftop é ao ar livre. E se chover ou fizer muito sol?', 'O espaço tem áreas cobertas e com sombra. Vai ter água e protetor solar à disposição. Vale levar boné e uma muda de roupa para os pequenos.']]],
-    ['No dia', [
-      ['O que devo levar?', 'Documento com foto do responsável, fralda e lenço para os bebês, boné e garrafinha. O resto a casa providencia, inclusive a muda que seu filho vai plantar e levar para casa.']]]
-  ];
-  let k = 0; const flat = [];
-  $('#fqList').innerHTML = FAQ.map(([g, qs]) => `<div class="fq-g"><h6>${g}</h6>${qs.map(([q, a]) => { flat.push([q, a]); return `<button data-q="${k}"><small>${String(++k).padStart(2, '0')}</small>${q}</button>`; }).join('')}</div>`).join('');
-  const showQ = i => {
-    $$('#fqList button').forEach(b => b.classList.toggle('on', +b.dataset.q === i));
-    const box = $('.fq-ans'); box.classList.add('swap');
-    setTimeout(() => { $('#fqN').textContent = String(i + 1).padStart(2, '0'); $('#fqQ').textContent = flat[i][0]; $('#fqA').textContent = flat[i][1]; box.classList.remove('swap'); }, 160);
-  };
-  $$('#fqList button').forEach(b => b.onclick = e => { e.stopPropagation(); showQ(+b.dataset.q); });
-  showQ(0);
 
   /* ---------- início ---------- */
   addEventListener('hashchange', () => { const n = parseInt(location.hash.slice(1)); if (n && n - 1 !== cur) go(n - 1); });
