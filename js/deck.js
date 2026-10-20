@@ -5,7 +5,9 @@
   const stage = $('#stage');
   const slides = $$('.slide');
   const N = slides.length;
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const qs = new URLSearchParams(location.search);
+  if (qs.has('export')) document.body.classList.add('export'); // ?export=1: sem navegação nem animação (captura das telas para PPT)
+  const reduce = qs.has('export') || matchMedia('(prefers-reduced-motion: reduce)').matches;
   let cur = -1;
 
   /* ---------- ícones (traço, herdam a cor) ---------- */
@@ -232,7 +234,7 @@
   /* opção de KV: o seletor (ou as teclas 1 e 2) troca todas as peças de uma vez */
   function setKV(v) { document.body.classList.toggle('kv2', v === '2'); $$('.kvsel button').forEach(b => b.classList.toggle('on', b.dataset.kv === v)); }
   $$('.kvsel button').forEach(b => b.onclick = e => { e.stopPropagation(); setKV(b.dataset.kv); });
-  setKV('1');
+  setKV(qs.get('kv') === '2' ? '2' : '1');
 
   /* ---------- início ---------- */
   addEventListener('hashchange', () => { const n = parseInt(location.hash.slice(1)); if (n && n - 1 !== cur) go(n - 1); });
