@@ -11,8 +11,8 @@ Estrutura e sistema visual extraídos do deck da Allmana para a Convenção Naci
 - **Telas do cliente** (conceito, jornada, programação, peças): fundo branco com diagonais cinza, aba escura com o logo do cliente no canto superior esquerdo, assinatura Allmana no direito, cor do cliente como acento.
 - Ordem narrativa: capa, informações gerais, overview, brief recap, contexto, ponte, insight, frase, conceito, plano de ação, divisores por capítulo, peças, itens para alinhar, "vamos juntos?", confidencialidade, obrigado e encerramento.
 
-## Identidade Ágora
-Cores do site oficial e do SVG do logo: verde petróleo `#01464D`, petróleo escuro `#002C2E`, menta `#00C88D`. Logo oficial (agorainvestimentos.com.br), sempre sobre área escura e chapada. Os mockups das peças respeitam a regra "nunca bold" do brandbook; a fonte final das peças é a Bradesco Sans (arquivo do cliente), aqui substituída por Inter Light/Regular. A foto do KV é uma cena ilustrativa da direção de foto, não uma foto real.
+## Identidade Ágora e as duas opções de KV
+O template (telas Allmana e moldura das telas do cliente) segue o deck da Allmana. As artes das peças seguem as duas opções de KV (`assets/img/kv-opcao-1.webp` e `kv-opcao-2.webp`): título "Family Day | Casa Aberta", frase de apoio, logo com a assinatura Bradesco e data são recortes das próprias artes (sprites em CSS), sobre o petróleo da arte (`#003e44`), com a família recortada de cada KV (`familia-rooftop.jpg` e `familia-rooftop-2.jpg`) e o grafismo de cada opção: delta (1) ou faixa diagonal com filetes menta (2). Um seletor "Opção 1 | Opção 2" nas telas de peças (ou as teclas 1 e 2) troca todas as peças de uma vez.
 
 ## Navegação
 Setas, espaço, Page Up/Down, clique (terço esquerdo volta), roda do mouse, toque e `#n` na URL. Tecla **M** abre o índice e **F** alterna tela cheia. Interações: filtro por faixa de idade, troca de arte dos carrinhos, loop da TV, carimbos do passaporte, abas da página do QR e as duas opções de KV, lado a lado numa mesma tela, com ampliação em tela cheia (clique na arte; setas alternam entre elas).

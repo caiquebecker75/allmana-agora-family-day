@@ -121,9 +121,10 @@
   const lb = $('#lb'), lbImg = $('#lbImg'), zooms = $$('[data-zoom]');
   let lbI = 0;
   const lbOpen = () => lb.classList.contains('open');
-  const lbShow = i => { lbI = (i + zooms.length) % zooms.length; lbImg.src = zooms[lbI].src; lbImg.alt = zooms[lbI].alt; };
+  let lbSet = [];
+  const lbShow = i => { lbI = (i + lbSet.length) % lbSet.length; lbImg.src = lbSet[lbI].src; lbImg.alt = lbSet[lbI].alt; };
   const lbClose = () => lb.classList.remove('open');
-  zooms.forEach((img, i) => { img.tabIndex = 0; img.setAttribute('role', 'button'); img.onclick = e => { e.stopPropagation(); lbShow(i); lb.classList.add('open'); $('#lbX').focus(); }; });
+  zooms.forEach(img => { img.tabIndex = 0; img.setAttribute('role', 'button'); img.onclick = e => { e.stopPropagation(); lbSet = $$('[data-zoom]', img.closest('.slide')); lbShow(lbSet.indexOf(img)); lb.classList.add('open'); $('#lbX').focus(); }; });
   lb.onclick = lbClose;
 
   addEventListener('keydown', e => {
@@ -139,6 +140,7 @@
     else if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); prevS(); }
     else if (e.key === 'Home') go(0); else if (e.key === 'End') go(N - 1);
     else if (e.key.toLowerCase() === 'm') openIndex();
+    else if (e.key === '1' || e.key === '2') setKV(e.key);
     else if (e.key.toLowerCase() === 'f') document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.();
   });
   let wheelT = 0;
@@ -177,21 +179,31 @@
     $$('tbody tr', tbl).forEach(tr => tr.classList.toggle('dim', a !== 'all' && !tr.children[+a + 1].querySelector('.dot')));
   });
 
-  /* carrinhos */
+  /* carrinhos: cada item leva os seus ícones (a: sem açúcar adicionado, g: sem glúten, l: sem lactose, v: vegano)
+     e cada carrinho diz o que contém. Pelos ingredientes de cada item; a lista final vem da ficha do fornecedor. */
   const CARTS = [
-    ['Fruta da casa', 'Docinho que vem da natureza.', ['Espetinho de frutas da estação', 'Copinho de melancia e uva', 'Picolé de fruta'], 'Tudo neste carrinho'],
-    ['Pipoca da casa', 'Estourada na hora.', ['Pipoca salgada no azeite', 'Pipoca doce em porção pequena'], 'Pipoca no azeite, sem manteiga'],
-    ['Lanchinho da casa', 'Para recarregar entre uma brincadeira e outra.', ['Mini pão de queijo', 'Sanduíche natural de frango ou de queijo branco no pão integral', 'Wrap de homus com legumes (vegano)'], 'Sanduíche natural e wrap'],
-    ['Bebidas da casa', 'Água fresquinha a manhã toda.', ['Água', 'Água saborizada com fruta e hortelã', 'Suco natural sem açúcar', 'Limonada suíça pouco doce'], 'Água saborizada e suco sem açúcar'],
-    ['Docinho da casa', 'Um pedacinho de alegria.', ['Brigadeiro de colher em porção pequena', 'Cookie de aveia com banana', 'Iogurte com granola'], 'Cookie de aveia com banana, iogurte natural'],
-    ['Café da casa', 'Para os adultos da família.', ['Café coado', 'Cappuccino', 'Chá gelado sem açúcar', 'Leite vegetal'], 'Chá gelado sem açúcar']
+    ['Fruta da casa', 'Docinho que vem da natureza.', [['Espetinho de frutas da estação', 'aglv'], ['Copinho de melancia e uva', 'aglv'], ['Picolé de fruta', 'glv']], 'Tudo neste carrinho', ''],
+    ['Pipoca da casa', 'Estourada na hora.', [['Pipoca salgada no azeite', 'aglv'], ['Pipoca doce em porção pequena', 'glv']], 'Pipoca no azeite, sem manteiga', ''],
+    ['Lanchinho da casa', 'Para recarregar entre uma brincadeira e outra.', [['Mini pão de queijo', 'g'], ['Sanduíche natural de frango ou de queijo branco no pão integral', ''], ['Wrap de homus com legumes (vegano)', 'lv']], 'Sanduíche natural e wrap', 'glúten (sanduíche e wrap), lactose (pão de queijo e sanduíche), ovo (pão de queijo).'],
+    ['Bebidas da casa', 'Água fresquinha a manhã toda.', [['Água', 'aglv'], ['Água saborizada com fruta e hortelã', 'aglv'], ['Suco natural sem açúcar', 'aglv'], ['Limonada suíça pouco doce', 'glv']], 'Água saborizada e suco sem açúcar', ''],
+    ['Docinho da casa', 'Um pedacinho de alegria.', [['Brigadeiro de colher em porção pequena', 'g'], ['Cookie de aveia com banana', 'a'], ['Iogurte com granola', '']], 'Cookie de aveia com banana, iogurte natural', 'lactose (brigadeiro e iogurte), glúten (cookie e granola). A granola pode conter castanhas.'],
+    ['Café da casa', 'Para os adultos da família.', [['Café coado', 'aglv'], ['Cappuccino', ''], ['Chá gelado sem açúcar', 'aglv'], ['Leite vegetal', 'lv']], 'Chá gelado sem açúcar', 'lactose (cappuccino). Leite vegetal conforme o tipo: amêndoa tem castanhas, aveia tem glúten.']
   ];
+  const TAG = { a: ['leaf', 'sem açúcar adicionado'], g: ['wheat', 'sem glúten'], l: ['drop', 'sem lactose'], v: ['sprout', 'vegano'] };
+  const tags = f => f ? `<span class="m-ics" title="${[...f].map(k => TAG[k][1]).join(', ')}">${[...f].map(k => `<i class="ic"><svg viewBox="0 0 24 24" aria-hidden="true">${IC[TAG[k][0]]}</svg></i>`).join('')}</span>` : '';
+  function renderCart(i) {
+    const [n, l, items, healthy, contains] = CARTS[i];
+    $('#crName').textContent = n; $('#crLine').textContent = l; $('#crMenuT').textContent = n;
+    $('#crMenu').innerHTML = items.map(([t, f]) => `<li>${t}${tags(f)}</li>`).join('');
+    $('#crHealthy').textContent = `Saudável: ${healthy.charAt(0).toLowerCase() + healthy.slice(1)}`;
+    $('#crAl').innerHTML = contains ? `<b>Contém:</b> ${contains}` : 'Nenhum item contém glúten, lactose, amendoim, castanhas ou ovo.';
+  }
+  renderCart(0);
   $$('.cr-list button').forEach(b => b.onclick = e => {
     e.stopPropagation();
     $$('.cr-list button').forEach(x => x.classList.toggle('on', x === b));
-    const [n, l, items, healthy] = CARTS[+b.dataset.cart];
     const swap = $$('.cart-top,.menu-a4'); swap.forEach(x => x.classList.add('swap'));
-    setTimeout(() => { $('#crName').textContent = n; $('#crLine').textContent = l; $('#crMenuT').textContent = n; $('#crMenu').innerHTML = items.map(i => `<li>${i}</li>`).join(''); $('#crHealthy').textContent = `Saudável: ${healthy.charAt(0).toLowerCase() + healthy.slice(1)}`; swap.forEach(x => x.classList.remove('swap')); }, 200);
+    setTimeout(() => { renderCart(+b.dataset.cart); swap.forEach(x => x.classList.remove('swap')); }, 200);
   });
 
   /* TV: loop das 4 telas */
@@ -216,6 +228,11 @@
     $$('.ph-p').forEach(p => p.classList.toggle('on', p.dataset.t === b.dataset.t));
   });
   $$('.ph-ages span').forEach(s => s.onclick = e => { e.stopPropagation(); $$('.ph-ages span').forEach(x => x.classList.toggle('on', x === s)); });
+
+  /* opção de KV: o seletor (ou as teclas 1 e 2) troca todas as peças de uma vez */
+  function setKV(v) { document.body.classList.toggle('kv2', v === '2'); $$('.kvsel button').forEach(b => b.classList.toggle('on', b.dataset.kv === v)); }
+  $$('.kvsel button').forEach(b => b.onclick = e => { e.stopPropagation(); setKV(b.dataset.kv); });
+  setKV('1');
 
   /* ---------- início ---------- */
   addEventListener('hashchange', () => { const n = parseInt(location.hash.slice(1)); if (n && n - 1 !== cur) go(n - 1); });

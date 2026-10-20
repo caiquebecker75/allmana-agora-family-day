@@ -21,27 +21,6 @@
 </head>
 <body>
 
-<!-- cena da foto (direção de foto do KV, não é foto real) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9D6D6"/><stop offset=".55" stop-color="#E6EEE9"/><stop offset="1" stop-color="#F3EADB"/></linearGradient>
-    <radialGradient id="gSun" cx="0" cy=".35" r=".9"><stop offset="0" stop-color="#FFF5DD" stop-opacity=".95"/><stop offset="1" stop-color="#FFF5DD" stop-opacity="0"/></radialGradient>
-    <filter id="fBlur" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.1"/></filter>
-    <symbol id="scene" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-      <rect width="100" height="100" fill="url(#gSky)"/>
-      <g filter="url(#fBlur)">
-        <g fill="#7FA3A3" opacity=".45"><rect x="2" y="44" width="9" height="34"/><rect x="13" y="36" width="7" height="42"/><rect x="22" y="48" width="10" height="30"/><rect x="35" y="30" width="8" height="48"/><rect x="45" y="42" width="11" height="36"/><rect x="58" y="34" width="7" height="44"/><rect x="67" y="46" width="12" height="32"/><rect x="81" y="38" width="8" height="40"/><rect x="91" y="50" width="9" height="28"/></g>
-        <g fill="#5E8686" opacity=".3"><rect x="8" y="54" width="12" height="24"/><rect x="28" y="56" width="9" height="22"/><rect x="50" y="52" width="10" height="26"/><rect x="74" y="55" width="11" height="23"/></g>
-      </g>
-      <rect width="100" height="100" fill="url(#gSun)"/>
-      <rect y="76" width="100" height="24" fill="#E4DDD0"/>
-      <rect y="69" width="100" height=".7" fill="#AEBDB9"/>
-      <g fill="#AEBDB9"><rect x="6" y="69" width=".6" height="7"/><rect x="22" y="69" width=".6" height="7"/><rect x="38" y="69" width=".6" height="7"/><rect x="54" y="69" width=".6" height="7"/><rect x="70" y="69" width=".6" height="7"/><rect x="86" y="69" width=".6" height="7"/></g>
-      <rect y="76" width="100" height=".5" fill="#CFC6B6"/>
-    </symbol>
-  </defs>
-</svg>
-
 <div id="stage" aria-live="polite">
 
 <!-- ================= ABERTURA (Allmana) ================= -->
@@ -119,18 +98,14 @@
 <section class="slide cl s-conc" id="s-conceito" data-chapter="Conceito" data-name="Conceito Casa Aberta">
   <div class="tab"><img src="assets/logos/agora-negativo.svg" alt="Ágora Investimentos"></div>
   <header class="hd"><span class="amLock" role="img" aria-label="Allmana"><i></i><i></i></span></header>
+<div class="kvsel" role="group" aria-label="Opção de KV"><button data-kv="1">Opção 1</button><button data-kv="2">Opção 2</button></div>
   <div class="cc-l">
     <p class="lbl" data-a="up">Conceito:</p>
     <h2 class="ttl xl cc-ttl" data-a="up" style="--d:80">Casa<br>Aberta</h2>
   </div>
   <div class="cc-kv" data-a="s" style="--d:200">
-    <div class="kv kv-h" style="font-size:7.4px">
-      <div class="kv-grid"></div>
-      <div class="kv-win"><img class="ph" src="assets/img/familia-rooftop.jpg" alt="Família no rooftop, a mesma das opções de KV"></div>
-      <svg class="kv-line" viewBox="0 0 100 56.25" preserveAspectRatio="none"><path d="M6 44.5H27L36 36.5H52L60 27.5"/><path d="M57.7 28.3L60 27.5L59.5 29.9"/></svg>
-      <div class="kv-txt"><span class="kv-over">Family Day Ágora · Casa Aberta</span><p class="kv-h1">Bem-vindos à <em>casa.</em><br>Hoje, ela é de vocês.</p><p class="kv-sup">Um dia para compartilhar experiências, criar memórias e aproximar ainda mais as famílias da Ágora.</p><p class="kv-date">11/12 · 9h às 13h · Rooftop, Faria Lima</p></div>
-      <img class="kv-logo" src="assets/logos/agora-negativo.svg" alt="">
-    </div>
+    <img class="kvimg o1" src="assets/img/kv-opcao-1.webp" alt="KV opção 1 do Family Day Ágora · Casa Aberta" data-zoom>
+    <img class="kvimg o2" src="assets/img/kv-opcao-2.webp" alt="KV opção 2 do Family Day Ágora · Casa Aberta" data-zoom>
   </div>
   <div class="cc-foot">
     <p class="cc-tag" data-a="up" style="--d:300">Bem-vindos à casa. Hoje, ela é de vocês.</p>
@@ -254,6 +229,7 @@
 <section class="slide cl d0 s-coz" id="s-carr" data-chapter="Programação" data-name="Cozinha da casa">
   <div class="tab"><img src="assets/logos/agora-negativo.svg" alt="Ágora Investimentos"></div>
   <header class="hd"><span class="amLock" role="img" aria-label="Allmana"><i></i><i></i></span></header>
+<div class="kvsel" role="group" aria-label="Opção de KV"><button data-kv="1">Opção 1</button><button data-kv="2">Opção 2</button></div>
   <div class="cz-head">
     <h2 class="ttl m" data-a="up">Cozinha da casa</h2>
     <div class="chips" data-a="up" style="--d:100">
@@ -265,9 +241,9 @@
   </div>
   <div class="cr-body">
     <div class="cart" data-a="up" style="--d:120">
-      <div class="cart-top"><b id="crName">Fruta da casa</b><span id="crLine">Docinho que vem da natureza.</span></div>
+      <div class="cart-top art"><i class="kvacc"></i><b id="crName">Fruta da casa</b><span id="crLine">Docinho que vem da natureza.</span></div>
       <div class="cart-poles"><i></i><i></i></div>
-      <div class="cart-front"><div class="kv-grid"></div><p>Cozinha da casa</p><span>Pode pegar, é de vocês.</span><img src="assets/logos/agora-negativo.svg" alt=""></div>
+      <div class="cart-front art"><p>Cozinha da casa</p><span>Pode pegar, é de vocês.</span><i class="sp sp-logo" style="--tw:24;left:6.5em;top:39em"></i><div class="kvph" style="left:52em;top:0;width:48em;height:50em;--pos:50% 0%"><i class="m"></i><i class="f"></i><i class="p"></i></div></div>
       <div class="cart-wheels"><i></i><i></i></div>
     </div>
     <div class="menu-a4" data-a="up" style="--d:200">
@@ -275,11 +251,12 @@
       <ul id="crMenu"><li>Espetinho de frutas da estação</li><li>Copinho de melancia e uva</li><li>Picolé de fruta</li></ul>
       <span class="m-hl"><i data-icon="leaf"></i><span id="crHealthy">Saudável: tudo neste carrinho</span></span>
       <div class="m-leg"><span><i data-icon="leaf"></i>sem açúcar adicionado</span><span><i data-icon="wheat"></i>sem glúten</span><span><i data-icon="drop"></i>sem lactose</span><span><i data-icon="sprout"></i>vegano</span></div>
-      <p class="m-al">Contém ou pode conter: glúten, lactose, amendoim, castanhas, ovo. Em caso de alergia, fale com a equipe do carrinho.</p>
-      <div class="m-ft"><img src="assets/logos/agora-negativo.svg" alt=""></div>
+      <p class="m-al" id="crAl"></p>
+      <p class="m-al m-tr">Pode haver traços por preparo compartilhado. Em caso de alergia, fale com a equipe do carrinho.</p>
+      <div class="m-ft art"><i class="kvacc"></i><i class="sp sp-logo" style="--tw:28;left:8.5em;top:4.2em"></i></div>
     </div>
     <div class="cr-list" data-a="up" style="--d:260" role="group" aria-label="Escolher carrinho">
-      <span class="xs mute">Testeira, painel frontal e placa A4. Clique para trocar o carrinho:</span>
+      <span class="xs mute">Testeira, painel frontal e placa A4. Ícones e alérgenos pelos ingredientes de cada item; a lista final vem da ficha do fornecedor. Clique para trocar o carrinho:</span>
       <button class="on" data-cart="0"><b>Fruta da casa</b><span>Docinho que vem da natureza.</span></button>
       <button data-cart="1"><b>Pipoca da casa</b><span>Estourada na hora.</span></button>
       <button data-cart="2"><b>Lanchinho da casa</b><span>Para recarregar entre uma brincadeira e outra.</span></button>
@@ -297,17 +274,16 @@
   <header class="hd"><span class="amLock" role="img" aria-label="Allmana"><i></i><i></i></span></header>
   <div class="ls-head">
     <h2 class="ttl m" data-a="up">A casa em cada peça</h2>
-    <p class="sm mute" data-a="up" style="--d:100">Dez peças, uma só ideia. Clique em uma peça para ver a proposta.</p>
   </div>
   <div class="ls-grid">
-    <button class="card ls" data-goto="s-kv" data-a="up" style="--d:40"><small>01</small><b>KV</b><em>A moldura da casa</em><p>Unidade visual de tudo; chamada principal.</p><span>Master 16:9, vertical 9:16 e quadrado 1:1</span></button>
-    <button class="card ls" data-goto="s-email" data-a="up" style="--d:80"><small>02</small><b>E-mail convite</b><em>A casa abre as portas</em><p>Despertar interesse, informar e gerar a inscrição até o prazo.</p><span>HTML de 600 px, com versão para Teams ou intranet</span></button>
-    <button class="card ls" data-goto="s-chegada" data-a="up" style="--d:120"><small>03</small><b>Totem de boas-vindas</b><em>A porta de entrada</em><p>Acolhe e orienta pelo mapa dos espaços.</p><span>Dupla face, cerca de 0,80 x 2,00 m</span></button>
-    <button class="card ls" data-goto="s-carr" data-a="up" style="--d:160"><small>04</small><b>Arte dos carrinhos</b><em>A cozinha da casa</em><p>Identifica cada carrinho e mostra o cardápio com alérgenos.</p><span>Testeira, painel frontal e placa de cardápio A4</span></button>
-    <button class="card ls" data-goto="s-durante" data-a="up" style="--d:200"><small>05</small><b>Arte de TV</b><em>A janela da casa</em><p>Programação ao vivo, sinalização e fotos do dia.</p><span>Loop 16:9, 1920x1080, 4 telas</span></button>
-    <button class="card ls" data-goto="s-chegada" data-a="up" style="--d:240"><small>06</small><b>Crachá e cordão</b><em>A chave da casa</em><p>Identidade e segurança da criança; passaporte da caça ao tesouro.</p><span>Crachá 10 x 14 cm, cordão com trava de segurança</span></button>
+    <div class="card ls" data-a="up" style="--d:40"><small>01</small><b>KV</b><em>A moldura da casa</em><p>Unidade visual de tudo; chamada principal.</p><span>Master 16:9, vertical 9:16 e quadrado 1:1</span></div>
+    <div class="card ls" data-a="up" style="--d:80"><small>02</small><b>E-mail convite</b><em>A casa abre as portas</em><p>Despertar interesse, informar e gerar a inscrição até o prazo.</p><span>HTML de 600 px, com versão para Teams ou intranet</span></div>
+    <div class="card ls" data-a="up" style="--d:120"><small>03</small><b>Totem de boas-vindas</b><em>A porta de entrada</em><p>Acolhe e orienta pelo mapa dos espaços.</p><span>Dupla face, cerca de 0,80 x 2,00 m</span></div>
+    <div class="card ls" data-a="up" style="--d:160"><small>04</small><b>Arte dos carrinhos</b><em>A cozinha da casa</em><p>Identifica cada carrinho e mostra o cardápio com alérgenos.</p><span>Testeira, painel frontal e placa de cardápio A4</span></div>
+    <div class="card ls" data-a="up" style="--d:200"><small>05</small><b>Arte de TV</b><em>A janela da casa</em><p>Programação ao vivo, sinalização e fotos do dia.</p><span>Loop 16:9, 1920x1080, 4 telas</span></div>
+    <div class="card ls" data-a="up" style="--d:240"><small>06</small><b>Crachá e cordão</b><em>A chave da casa</em><p>Identidade e segurança da criança; passaporte da caça ao tesouro.</p><span>Crachá 10 x 14 cm, cordão com trava de segurança</span></div>
     <div class="card ls" data-a="up" style="--d:280"><small>07</small><b>PDF de perguntas e respostas</b><em>As dúvidas antes da visita</em><p>16 perguntas para reduzir mensagens ao RH.</p><span>A4 vertical, 3 a 4 páginas</span></div>
-    <button class="card ls" data-goto="s-durante" data-a="up" style="--d:320"><small>08</small><b>Página do QR</b><em>A casa no celular</em><p>Programação do dia e mapa no celular dos pais.</p><span>Página mobile, aberta pelo QR do e-mail, do totem e da TV</span></button>
+    <div class="card ls" data-a="up" style="--d:320"><small>08</small><b>Página do QR</b><em>A casa no celular</em><p>Programação do dia e mapa no celular dos pais.</p><span>Página mobile, aberta pelo QR do e-mail, do totem e da TV</span></div>
     <div class="card ls ex" data-a="up" style="--d:360"><small>09 · sugestão extra</small><b>Placas dos espaços</b><em>Cada atividade é um cômodo</em><p>Nome de cada cômodo e faixa de idade.</p><span>Placa de mesa A4 e bandeira de chão</span></div>
     <div class="card ls ex" data-a="up" style="--d:400"><small>10 · sugestão extra</small><b>Etiqueta da muda</b><em>A prova de que conheceu a casa</em><p>“Plantado na Casa Aberta da Ágora · 11/12/2026 · Cuide bem e veja crescer.”</p><span>Etiqueta 5 x 5 cm no saquinho</span></div>
   </div>
@@ -327,16 +303,15 @@
       <li><i>5</i><div><b>Logo</b><span>Versão negativa, no canto inferior esquerdo, sempre sobre área escura e chapada.</span></div></li>
     </ol>
   </div>
-  <div class="kd-r" data-a="s" style="--d:200">
-    <div class="kv kv-h" style="font-size:8.6px">
-      <div class="kv-grid"></div>
-      <div class="kv-win"><svg class="ph"><use href="#scene"/></svg><span class="kv-cap">Foto: família real no rooftop, luz da manhã</span></div>
-      <svg class="kv-line" viewBox="0 0 100 56.25" preserveAspectRatio="none"><path d="M6 44.5H27L36 36.5H52L60 27.5"/><path d="M57.7 28.3L60 27.5L59.5 29.9"/></svg>
-      <div class="kv-txt"><span class="kv-over">Family Day Ágora · Casa Aberta</span><p class="kv-h1">Bem-vindos à <em>casa.</em><br>Hoje, ela é de vocês.</p><p class="kv-sup">Um dia para compartilhar experiências, criar memórias e aproximar ainda mais as famílias da Ágora.</p><p class="kv-date">11/12 · 9h às 13h · Rooftop, Faria Lima</p></div>
-      <img class="kv-logo" src="assets/logos/agora-negativo.svg" alt="">
-      <span class="mk" style="left:76%;top:62%">1</span><span class="mk" style="left:47%;top:8%">2</span><span class="mk" style="left:.6%;top:14%">3</span><span class="mk" style="left:33%;top:72%">4</span><span class="mk" style="left:.6%;top:85%">5</span>
-    </div>
-    <p class="xs mute kd-cap">Master horizontal 16:9. Foto ilustrativa da direção: a produção fotográfica entra no lugar da cena.</p>
+  <div class="kd-r kd-two">
+    <figure data-a="up" style="--d:200">
+      <figcaption><b>Opção 1</b></figcaption>
+      <img src="assets/img/kv-opcao-1.webp" alt="KV opção 1: Family Day Casa Aberta, com a família no rooftop recortada no delta do logo da Ágora" data-zoom>
+    </figure>
+    <figure data-a="up" style="--d:300">
+      <figcaption><b>Opção 2</b></figcaption>
+      <img src="assets/img/kv-opcao-2.webp" alt="KV opção 2: Family Day Casa Aberta, com a família no rooftop numa faixa diagonal" data-zoom>
+    </figure>
   </div>
 </section>
 
@@ -362,22 +337,25 @@
 <section class="slide cl d0 s-fmt" data-chapter="Peças" data-name="Formatos e regras do KV">
   <div class="tab"><img src="assets/logos/agora-negativo.svg" alt="Ágora Investimentos"></div>
   <header class="hd"><span class="amLock" role="img" aria-label="Allmana"><i></i><i></i></span></header>
+<div class="kvsel" role="group" aria-label="Opção de KV"><button data-kv="1">Opção 1</button><button data-kv="2">Opção 2</button></div>
   <div class="fm-kvs">
     <figure data-a="up" style="--d:60">
-      <div class="kv kv-v" style="font-size:2.9px">
-        <div class="kv-grid"></div>
-        <img class="kv-logo" src="assets/logos/agora-negativo.svg" alt="">
-        <div class="kv-win"><svg class="ph"><use href="#scene"/></svg></div>
-        <div class="kv-txt"><span class="kv-over">Family Day Ágora · Casa Aberta</span><p class="kv-h1">Bem-vindos<br>à <em>casa.</em><br>Hoje, ela é<br>de vocês.</p><p class="kv-date">11/12 · 9h às 13h · Rooftop, Faria Lima</p></div>
+      <div class="art fmt-v" style="font-size:2.9px">
+        <i class="sp sp-logo" style="--tw:40;left:8em;top:8em"></i>
+        <i class="sp sp-date" style="--tw:26;right:7em;top:7.5em"></i>
+        <i class="sp sp-title" style="--tw:80;left:7em;top:26em"></i>
+        <i class="sp sp-tag" style="--tw:58;left:8em;top:79em"></i>
+        <div class="kvph" style="left:0;top:100em;width:100em;height:77.78em;--pos:50% 0%"><i class="m"></i><i class="f"></i><i class="p"></i></div>
       </div>
       <figcaption>Vertical 9:16</figcaption>
     </figure>
     <figure data-a="up" style="--d:140">
-      <div class="kv kv-s" style="font-size:3.9px">
-        <div class="kv-grid"></div>
-        <div class="kv-win"><svg class="ph"><use href="#scene"/></svg></div>
-        <div class="kv-txt"><span class="kv-over">Family Day Ágora · Casa Aberta</span><p class="kv-h1">Bem-vindos à <em>casa.</em><br>Hoje, ela é de vocês.</p><p class="kv-date">11/12 · 9h às 13h<br>Rooftop, Faria Lima</p></div>
-        <img class="kv-logo" src="assets/logos/agora-negativo.svg" alt="">
+      <div class="art fmt-s" style="font-size:3.9px">
+        <i class="sp sp-title" style="--tw:44;left:6em;top:8em"></i>
+        <i class="sp sp-tag" style="--tw:28;left:6.5em;top:39em"></i>
+        <i class="sp sp-logo" style="--tw:22;left:6.5em;top:87em"></i>
+        <i class="sp sp-date" style="--tw:20;right:6em;top:7em"></i>
+        <div class="kvph" style="left:36em;top:36em;width:64em;height:64em;--pos:50% 0%"><i class="m"></i><i class="f"></i><i class="p"></i></div>
       </div>
       <figcaption>Quadrado 1:1</figcaption>
     </figure>
@@ -396,6 +374,7 @@
 <section class="slide cl d0 s-mail" id="s-email" data-chapter="Peças" data-name="E-mail convite">
   <div class="tab"><img src="assets/logos/agora-negativo.svg" alt="Ágora Investimentos"></div>
   <header class="hd"><span class="amLock" role="img" aria-label="Allmana"><i></i><i></i></span></header>
+<div class="kvsel" role="group" aria-label="Opção de KV"><button data-kv="1">Opção 1</button><button data-kv="2">Opção 2</button></div>
   <div class="ml-l">
     <h2 class="ttl m" data-a="up">E-mail<br>convite</h2>
     <div class="card wh ml-c" data-a="up" style="--d:100"><span class="lbl">Assunto</span><p>Family Day Ágora: nossa casa aberta para vocês</p><span class="lbl">Pré-cabeçalho</span><p>Uma manhã para seu filho conhecer onde você trabalha. Inscreva sua família.</p></div>
@@ -408,8 +387,7 @@
     <div class="mail">
       <div class="mail-bar"><i></i><i></i><i></i><span>Family Day Ágora: nossa casa aberta para vocês</span></div>
       <div class="mail-scroll" tabindex="0" aria-label="Prévia do e-mail convite, role para ler">
-        <div class="mail-hd"><img src="assets/logos/agora-negativo.svg" alt="Ágora Investimentos"></div>
-        <div class="mail-kv"><div class="kv-grid"></div><div class="mw"><svg class="ph"><use href="#scene"/></svg></div><p>Bem-vindos<br>à <em>casa.</em><br>Hoje, ela é<br>de vocês.</p></div>
+        <div class="mail-hero art"><i class="sp sp-title" style="--tw:40;left:6em;top:8em"></i><i class="sp sp-tag" style="--tw:32;left:6.5em;top:36em"></i><i class="sp sp-logo" style="--tw:24;left:6.5em;top:50em"></i><div class="kvph" style="left:47em;top:0;width:53em;height:62em;--pos:50% 0%"><i class="m"></i><i class="f"></i><i class="p"></i></div></div>
         <div class="mail-body">
           <p>Você sai dizendo “vou trabalhar” e seu filho não faz ideia do que acontece lá dentro. Na Ágora, esse lugar tem nome: casa.</p>
           <p>No nosso primeiro Family Day, a casa abre as portas para a sua família. Uma manhã para a criança ver de perto onde você passa os dias, e levar essa memória com ela.</p>
@@ -433,21 +411,25 @@
 <section class="slide cl d0 s-che" id="s-chegada" data-chapter="Peças" data-name="Totem e crachá">
   <div class="tab"><img src="assets/logos/agora-negativo.svg" alt="Ágora Investimentos"></div>
   <header class="hd"><span class="amLock" role="img" aria-label="Allmana"><i></i><i></i></span></header>
+<div class="kvsel" role="group" aria-label="Opção de KV"><button data-kv="1">Opção 1</button><button data-kv="2">Opção 2</button></div>
   <div class="ce-l">
     <p class="lbl" data-a="up">Chegada:</p>
     <h2 class="ttl m" data-a="up" style="--d:60">A porta e<br>a chave<br>da casa</h2>
     <p class="sm" data-a="up" style="--d:140"><b>Totem</b> dupla face, cerca de 0,80 x 2,00 m: a chamada que acolhe na frente, o mapa dos cômodos no verso. Lê em 3 segundos a 3 metros.</p>
     <p class="sm" data-a="up" style="--d:200"><b>Crachá</b> 10 x 14 cm: identidade na frente, passaporte e contato do responsável no verso. Clique nos espaços para carimbar.</p>
-    <div class="stk-b" data-a="up" style="--d:260"><span class="lbl">Adesivo 0 a 2 anos · costas da roupa</span><p>Olá, eu sou <b>[NOME]</b> · Meu responsável: <b>[NOME]</b> · <b>[CELULAR]</b></p></div>
+    <figure class="ades-fig" data-a="up" style="--d:260">
+      <div class="ades"><div class="ades-top art"><i class="kvacc"></i><i class="sp sp-logo" style="--tw:34;left:6em;top:7.5em"></i></div><div class="ades-body"><small>Olá, eu sou</small><b>[NOME]</b><span>Meu responsável: [NOME] · [CELULAR]</span></div></div>
+      <figcaption>Adesivo 0 a 2 anos · costas da roupa</figcaption>
+    </figure>
   </div>
   <div class="ce-tot">
     <figure data-a="up" style="--d:120">
-      <div class="tot tot-f">
-        <div class="kv-grid"></div>
-        <span class="t-over">Family Day Ágora · Casa Aberta</span>
-        <div class="t-win"><svg class="ph"><use href="#scene"/></svg></div>
-        <p class="t-h">Bem-vindos<br>à <em>casa.</em><br>Hoje, ela é<br>de vocês.</p>
-        <img src="assets/logos/agora-negativo.svg" alt="">
+      <div class="tot tot-f art">
+        <i class="sp sp-logo" style="--tw:44;left:9em;top:12em"></i>
+        <i class="sp sp-date" style="--tw:30;right:8em;top:11.5em"></i>
+        <i class="sp sp-title" style="--tw:84;left:8em;top:34em"></i>
+        <i class="sp sp-tag" style="--tw:70;left:9em;top:92em"></i>
+        <div class="kvph" style="left:0;top:124em;width:100em;height:126em;--pos:50% 0%"><i class="m"></i><i class="f"></i><i class="p"></i></div>
       </div>
       <figcaption>Totem · frente</figcaption>
     </figure>
@@ -468,8 +450,7 @@
       <figure data-a="up" style="--d:240">
         <div class="badge-c bf">
           <i class="hole"></i>
-          <div class="bf-top"><img src="assets/logos/agora-negativo.svg" alt=""></div>
-          <span class="bf-ev">Family Day · Casa Aberta</span>
+          <div class="bf-top art"><i class="kvacc"></i><i class="sp sp-logo" style="--tw:30;left:8em;top:8em"></i><i class="sp sp-title" style="--tw:50;left:7.5em;top:20em"></i></div>
           <p class="bf-hi">Olá, eu sou</p>
           <p class="bf-nm">[NOME DA<br>CRIANÇA]</p>
           <span class="bf-age">6 a 8</span>
@@ -500,6 +481,7 @@
 <section class="slide cl d0 s-dur" id="s-durante" data-chapter="Peças" data-name="TV e página do QR">
   <div class="tab"><img src="assets/logos/agora-negativo.svg" alt="Ágora Investimentos"></div>
   <header class="hd"><span class="amLock" role="img" aria-label="Allmana"><i></i><i></i></span></header>
+<div class="kvsel" role="group" aria-label="Opção de KV"><button data-kv="1">Opção 1</button><button data-kv="2">Opção 2</button></div>
   <div class="du-r">
     <p class="lbl" data-a="up">Durante a manhã:</p>
     <h2 class="ttl m" data-a="up" style="--d:60">A janela<br>e o celular</h2>
@@ -510,10 +492,10 @@
   <div class="du-tv" data-a="s" style="--d:120">
     <div class="tvset">
       <div class="tv-screen">
-        <div class="tvs on" data-s="0"><div class="kv-grid"></div><div class="tw"><svg class="ph"><use href="#scene"/></svg></div><div class="tx"><span>Family Day Ágora · 11/12</span><p>Bem-vindos à <em>casa.</em><br>Hoje, ela é de vocês.</p></div><img src="assets/logos/agora-negativo.svg" alt=""></div>
-        <div class="tvs" data-s="1"><div class="kv-grid"></div><div class="tx"><span>Agora na casa</span><ul><li><b>10h</b>Malabares na Sala de jogos</li><li><b>10h30</b>Pequenos jardineiros no Quintal</li></ul></div><img src="assets/logos/agora-negativo.svg" alt=""></div>
-        <div class="tvs" data-s="2"><div class="kv-grid"></div><div class="tx"><span>Passaporte da casa</span><p>Já carimbou seu passaporte?</p><small>Visite os espaços, ganhe os carimbos e descubra o último no Momento juntos, às 12h15.</small><div class="stamps"><i></i><i></i><i></i><i></i><i class="last"></i></div></div><img src="assets/logos/agora-negativo.svg" alt=""></div>
-        <div class="tvs" data-s="3"><div class="kv-grid"></div><div class="tx"><span>Programação e mapa no celular</span><div class="tvqr"><span data-qr="tv"></span><small>Água, protetor solar e trocador: siga as placas.</small></div></div><img src="assets/logos/agora-negativo.svg" alt=""></div>
+        <div class="tvs on" data-s="0"><img class="tvkv o1" src="assets/img/kv-opcao-1.webp" alt="KV opção 1 na TV"><img class="tvkv o2" src="assets/img/kv-opcao-2.webp" alt="KV opção 2 na TV"></div>
+        <div class="tvs" data-s="1"><i class="kvacc"></i><div class="tx"><span>Agora na casa</span><ul><li><b>10h</b>Malabares na Sala de jogos</li><li><b>10h30</b>Pequenos jardineiros no Quintal</li></ul></div><i class="sp sp-logo" style="--tw:20;left:5.3em;top:48.5em"></i></div>
+        <div class="tvs" data-s="2"><i class="kvacc"></i><div class="tx"><span>Passaporte da casa</span><p>Já carimbou seu passaporte?</p><small>Visite os espaços, ganhe os carimbos e descubra o último no Momento juntos, às 12h15.</small><div class="stamps"><i></i><i></i><i></i><i></i><i class="last"></i></div></div><i class="sp sp-logo" style="--tw:20;left:5.3em;top:48.5em"></i></div>
+        <div class="tvs" data-s="3"><i class="kvacc"></i><div class="tx"><span>Programação e mapa no celular</span><div class="tvqr"><span data-qr="tv"></span><small>Água, protetor solar e trocador: siga as placas.</small></div></div><i class="sp sp-logo" style="--tw:20;left:5.3em;top:48.5em"></i></div>
         <div class="tv-bar"><i></i></div>
       </div>
       <div class="tv-foot"></div>
@@ -528,7 +510,7 @@
   <div class="du-ph" data-a="up" style="--d:180">
     <div class="phone">
       <div class="ph-scr">
-        <div class="ph-hd"><img src="assets/logos/agora-negativo.svg" alt=""><b>Family Day Ágora · Casa Aberta</b><span>Sexta, 11/12 · 9h às 13h · Rooftop, Faria Lima</span></div>
+        <div class="ph-hd art"><i class="kvacc"></i><i class="sp sp-logo" style="--tw:34;left:6.5em;top:8.5em"></i><i class="sp sp-title" style="--tw:40;left:6.3em;top:19.5em"></i><span>Sexta, 11/12 · 9h às 13h · Rooftop, Faria Lima</span></div>
         <nav class="ph-tabs" role="tablist"><button class="on" data-t="0">Agora</button><button data-t="1">Programação</button><button data-t="2">Mapa</button><button data-t="3">Comida</button><button data-t="4">Dúvidas</button></nav>
         <div class="ph-body">
           <div class="ph-p on" data-t="0">
