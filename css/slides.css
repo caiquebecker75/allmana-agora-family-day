@@ -440,3 +440,6 @@ figcaption{font-size:14px;opacity:.65}
 .kvs-row figcaption b{color:var(--petrol)}
 .kvs-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:60px}
 .kvs-foot .sm{max-width:470px}
+
+/* foto real na janela do KV */
+img.ph{object-fit:cover}
