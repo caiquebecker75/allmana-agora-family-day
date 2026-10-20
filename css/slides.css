@@ -433,17 +433,10 @@ figcaption{font-size:14px;opacity:.65}
 .ob a:hover{text-decoration:underline}
 
 /* ===== opções de KV ===== */
-.s-kvo{flex-direction:row;gap:44px;align-items:center}
-.ko-l{width:260px;flex:none;display:flex;flex-direction:column;gap:14px}
-.ko-l .lbl{margin-bottom:-4px}
-.ko-n{font-family:var(--fh);font-weight:800;font-size:120px;line-height:.85;letter-spacing:-.045em;color:var(--petrol)}
-.ko-li{list-style:none;display:flex;flex-direction:column;gap:10px}
-.ko-li li{font-size:15.5px;line-height:1.42;padding-left:16px;position:relative}
-.ko-li li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;background:var(--mint)}
-.ko-sw{display:flex;gap:6px;margin-top:6px}
-.ko-sw button{padding:9px 16px;border-radius:999px;background:var(--gray);font-size:14px;font-weight:600;transition:background .2s,color .2s}
-.ko-sw button:hover{background:var(--gray2)}
-.ko-sw .on,.ko-sw .on:hover{background:var(--petrol);color:#fff}
-.ko-img{flex:1;margin:0;gap:10px}
-.ko-img img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;box-shadow:0 30px 60px -30px rgba(0,40,40,.5),0 0 0 1px rgba(0,0,0,.06);cursor:zoom-in}
-.ko-img figcaption{font-size:13px}
+.kvs-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.kvs-row figure{gap:12px}
+.kvs-row img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;box-shadow:0 26px 50px -28px rgba(0,40,40,.5),0 0 0 1px rgba(0,0,0,.06);cursor:zoom-in}
+.kvs-row figcaption{font-size:16px;opacity:1}
+.kvs-row figcaption b{color:var(--petrol)}
+.kvs-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:60px}
+.kvs-foot .sm{max-width:470px}
