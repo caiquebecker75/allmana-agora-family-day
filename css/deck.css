@@ -144,3 +144,10 @@ body.show-hud .hud,.hud:hover,.hud:focus-within{opacity:1;transform:none}
   .rot button{margin-left:auto;font-size:12px;font-weight:700;letter-spacing:.06em;padding:8px 12px;border-radius:999px;background:#2A2A2A}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;transition-delay:0s!important;animation:none!important}}
+
+/* ampliação em tela cheia */
+.lb{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.94);display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s linear .3s;cursor:zoom-out}
+.lb.open{opacity:1;visibility:visible;transition:opacity .3s}
+.lb img{max-width:98vw;max-height:96vh;object-fit:contain}
+.lb button{position:absolute;top:16px;right:16px;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;display:grid;place-items:center}
+.lb button .ic{width:20px;height:20px}

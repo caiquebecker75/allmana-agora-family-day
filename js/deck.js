@@ -117,7 +117,23 @@
   const pingHud = () => { document.body.classList.add('show-hud'); clearTimeout(hudT); hudT = setTimeout(() => document.body.classList.remove('show-hud'), 2400); };
   addEventListener('mousemove', pingHud); addEventListener('touchstart', pingHud, { passive: true });
 
+  /* ampliação em tela cheia das artes (KVs), com setas entre elas */
+  const lb = $('#lb'), lbImg = $('#lbImg'), zooms = $$('[data-zoom]');
+  let lbI = 0;
+  const lbOpen = () => lb.classList.contains('open');
+  const lbShow = i => { lbI = (i + zooms.length) % zooms.length; lbImg.src = zooms[lbI].src; lbImg.alt = zooms[lbI].alt; };
+  const lbClose = () => lb.classList.remove('open');
+  zooms.forEach((img, i) => { img.tabIndex = 0; img.setAttribute('role', 'button'); img.onclick = e => { e.stopPropagation(); lbShow(i); lb.classList.add('open'); $('#lbX').focus(); }; });
+  lb.onclick = lbClose;
+
   addEventListener('keydown', e => {
+    if (lbOpen()) {
+      if (e.key === 'Escape') lbClose();
+      else if (e.key === 'ArrowRight') lbShow(lbI + 1);
+      else if (e.key === 'ArrowLeft') lbShow(lbI - 1);
+      return;
+    }
+    if (e.key === 'Enter' && e.target.matches('[data-zoom]')) { e.target.click(); return; }
     if (idx.classList.contains('open')) { if (e.key === 'Escape' || e.key.toLowerCase() === 'm') closeIndex(); return; }
     if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); nextS(); }
     else if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); prevS(); }
@@ -127,14 +143,14 @@
   });
   let wheelT = 0;
   addEventListener('wheel', e => {
-    if (idx.classList.contains('open') || e.target.closest('.mail-scroll')) return;
+    if (lbOpen() || idx.classList.contains('open') || e.target.closest('.mail-scroll')) return;
     const now = Date.now(); if (now - wheelT < 900 || Math.abs(e.deltaY) + Math.abs(e.deltaX) < 20) return;
     wheelT = now; (e.deltaY + e.deltaX > 0 ? nextS : prevS)();
   }, { passive: true });
   let tx = 0, ty = 0;
   addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
   addEventListener('touchend', e => {
-    if (idx.classList.contains('open') || e.target.closest('.mail-scroll')) return;
+    if (lbOpen() || idx.classList.contains('open') || e.target.closest('.mail-scroll')) return;
     const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
     if (Math.max(Math.abs(dx), Math.abs(dy)) < 50) return;
     const d = Math.abs(dx) > Math.abs(dy) ? dx : dy; (d < 0 ? nextS : prevS)();
